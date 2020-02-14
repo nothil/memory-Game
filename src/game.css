@@ -3,15 +3,18 @@
 
 
 body {
-	background-color: #232323;
-	margin: 0;
+	background-color: aliceblue;
+
+	
+	margin: 0px;
 	font-family: "Montserrat", "Avenir";
+	padding: 0px;
 }
 
-.square {
+/*.square {
     background-color: aquamarine;
     padding: 0px;
-    border: 1px solid rgb(255, 255, 255, 0.8);
+    border: 1px solid whitesmoke;
 	border-radius: 10%;
 	width: 100%;
 	width: 100%;
@@ -20,12 +23,35 @@ body {
 
     
 	
+}*/
+
+#container{
+	background-color: #232323;
+	width: 50%;
+	height: 50%;
+	margin: 0px auto;
+	padding: 10px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-column-gap:10px;
+	
+
+
+}
+
+.squares{
+	width: 100%;
+}
+
+img{
+  width: 100%;
+  background-color: aliceblue;
 }
 
 .square.flip{
 	transform: rotateY(180deg);
 }
- img{
+ /*img{
 	width: 50%;
 	height:50%;
 	padding: 0px;
@@ -36,7 +62,7 @@ body {
 }
 
 
-#container {
+/*#container {
     display: grid;
     grid-template-columns:1fr 1fr 1fr 1fr;
     grid-column-gap: 100px;
@@ -44,17 +70,18 @@ body {
     grid-column-gap:10px;
     row-gap: 10px;
     margin: auto;
-    padding: 40px;
+	padding: 40px;
+	border:1px solid white;
 
 	
-}
+}*/
 
 h1 {
 	text-align: center;
 	line-height: 1.1;
 	font-weight: normal;
 	color: white;
-	background: steelblue;
+	background: darkgray;
 	margin: 0;
 	text-transform: uppercase;
 	padding: 20px 0;
@@ -78,7 +105,7 @@ h1 {
 
 .selected {
 	color: white;
-	background: steelblue;
+	background: darkgray;
 }
 
 button {
@@ -87,7 +114,7 @@ button {
 	text-transform: uppercase;
 	height: 100%;
 	font-weight: 700;
-	color: steelblue;
+	color: darkgray;
 	letter-spacing: 1px;
 	font-size: inherit;
 	transition: all 0.3s;
