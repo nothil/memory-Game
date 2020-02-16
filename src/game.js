@@ -1,147 +1,78 @@
-// var color = [];
-// var squares = document.querySelectorAll(".square");
-// var numSquare = 16;
-// var colorDisplay = document.getElementById("colorDisplay");
 
-// function generateRandomColors(){
-// 	//make an array
-// 	var arr = []
-// 	//repeat num times
-// 	for(var i = 0; i < 8; i++){
-// 		//get random color and push into arr
-// 		arr.push(randomColor())
-// 	}
-// 	//return that array
-// 	return arr;
-//}
-// function cardFlip(){
-// 	this.classList.toggle('flip');
-// }
-
-// squares.forEach(card => card.addEventListener('click', cardFlip ));
-
-
-// var randomColor = function (){
-// 	//pick a "red" from 0 - 255
-// 	var r = Math.floor(Math.random() * 256);
-// 	//pick a "green" from  0 -255
-// 	var g = Math.floor(Math.random() * 256);
-// 	//pick a "blue" from  0 -255
-// 	var b = Math.floor(Math.random() * 256);
-// 	return "rgb(" + r + ", " + g + ", " + b + ")";
-// }
-//  console.log(randomColor)
-
-//////////////////////////////////////////
-
-var squares = []; // main container for game images
-var tileArray = [];
-var tileFlippedOver = [];
-var cardFlipped = -2;
-var timer = '';
-var playLockout = false;
-var gamePlay = false; // controls if we rebuild the board restart
-
-var startButton = document.getElementById('start');
-var gameBoard = document.getElementById('gameboard');
-var message = document.getElementById('message');
-
-//event listens
-startButton.addEventListener('click', startGame);
-
-function startGame() {
-  cardFlipped = -1;
-  playLockout = false;
-  startButton.style.display = 'none';
-  if (!gamePlay) {
-    gamePlay = true;
-    buildArray();
-    tileArray = tileImages.concat(tileImages);
-    shuffleArray(tileArray);
-    buildBoard();
-    message.innerHTML = "Click Any Tile";
-  }
-}
-
-function buildArray() {
-  for (var x = 1; x < 7; x++) {
-    tileImages.push(x + '.svg');
-  }
-}
-function buildBoard() {
-  var html = "";
-  for (var x = 0; x <= (tileArray.length - 1); x++) {
-    html += '<div class="gameTile"><div class="gameTile">';
-    html += '<img id="cardz' + x + '" src="images/back.jpg" onclick="pickCard(' + x + ',this)" class="flipImage"></div></div>';
-  }
-  gameBoard.innerHTML = html;
-}
-
-function pickCard(tileIndex, t) {
-  if (!isinArray(t.id, tileFlippedOver) && !playLockout) {
-    if (cardFlipped >= 0) {
-      cardFlip(t, tileIndex);
-      playLockout = true;
-      if (checkSrc(tileFlippedOver[tileFlippedOver.length - 1]) == checkSrc(tileFlippedOver[tileFlippedOver.length - 2])) {
-        message.innerHTML = "Match Found.  Click more tiles";
-        playLockout = false;
-        cardFlipped = -1;
-        if (tileFlippedOver.length == tileArray.length) {
-          gameover();
-        }
-      } else {
-        message.innerHTML = "No Match";
-        timer = setInterval(hideCard, 100);
-      }
-    } else {
-      cardFlipped = tileIndex;
-      cardFlip(t, tileIndex);
-    }
+document.querySelector('#yellow').addEventListener('click', function() {
+  if (document.getElementById('yellow').classList.contains('hide')) {
+    document.getElementById('yellow').classList.add('yellow');
+    document.getElementById('yellow').classList.remove('hide');
   } else {
-    message.innerHTML = "Not clickable";
+    document.getElementById('yellow').classList.add('hide');
+    document.getElementById('yellow').classList.remove('yellow');
+  }  
+});
+
+document.querySelector('#blue1').addEventListener('click', function() {
+  if (document.getElementById('blue').classList.contains('hide')) {
+    document.getElementById('blue').classList.add('blue');
+    document.getElementById('blue').classList.remove('hide');
+  } else {
+    document.getElementById('blue').classList.add('hide');
+    document.getElementById('blue').classList.remove('blue');
+  }  
+});
+
+
+document.querySelector('#red1').addEventListener('click', function() {
+  if (document.getElementById('red').classList.contains('hide')) {
+    document.getElementById('red').classList.add('red');
+    document.getElementById('red').classList.remove('hide');
+  } else {
+    document.getElementById('red').classList.add('hide');
+    document.getElementById('red').classList.remove('red');
+  }  
+});
+
+
+document.querySelector('#green').addEventListener('click', function() {
+  if (document.getElementById('green').classList.contains('hide')) {
+    document.getElementById('green').classList.add('green');
+    document.getElementById('green').classList.remove('hide');
+  } else {
+    document.getElementById('blue').classList.add('hide');
+    document.getElementById('green').classList.remove('green');
+  }  
+});
+
+
+document.querySelector('#black1').addEventListener('click', function() {
+  if (document.getElementById('black').classList.contains('hide')) {
+    document.getElementById('black').classList.add('black');
+    document.getElementById('black').classList.remove('hide');
+  } else {
+    document.getElementById('black').classList.add('hide');
+    document.getElementById('black').classList.remove('black');
+  }  
+});
+
+document.querySelector('#pink1').addEventListener('click', function() {
+  if(document.getElementById('pink1').classList.contains('hide')) {
+    document.getElementById('pink').classList.add('pink');
+    document.getElementById('pink').classList.remove('hide');
+  } else {
+    document.getElementById('pink').classList.add('hide');
+    document.getElementById('pink').classList.remove('pink');
   }
-}
+});
 
-function hideCard() {
-  for (var x = 0; x < 2; x++) {
-    var vid = tileFlippedOver.pop();
-    document.getElementById(vid).src = "images/back.jpg";
-  }
-  clearInterval(timer);
-  playLockout = false;
-  cardFlipped = -1;
-  message.innerHTML = "Click Any Tile";
-}
+// var onclick = document.getElementsByClassName("hide");
 
-function gameover() {
-  startButton.style.display = 'block';
-  message.innerHTML = "Well Done! ";
-  gamePlay = false;
-  tileImages = [];
-  tileFlippedOver = [];
-}
 
-function isinArray(v, array) {
-  return array.indexOf(v) > -1;
-}
+// function clickedCard(e) {
+//   for(var i = 0; i < card.length; i++) 
+//   const target = e.currentTarget;
+//   hide[i].addEventListener('click', clickedCard);
 
-function cardFlip(t, ti) {
-  t.src = "images/" + tileArray[ti];
-  tileFlippedOver.push(t.id);
-}
+//   target.className = target.className
+//   .replace('hide', '')
+//   .trim();
 
-function checkSrc(v) {
-  var v = document.getElementById(v).src;
-  return v;
-}
-
-function shuffleArray(array) {
-  for (var x = array.length - 1; x > 0; x--) {
-    var holder = Math.floor(Math.random() * (x + 1));
-    var itemValue = array[x];
-    array[x] = array[holder];
-    array[holder] = itemValue;
-  }
-  return array;
-}
+// }
 
