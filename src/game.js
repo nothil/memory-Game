@@ -5,17 +5,15 @@ var colors =  [];
 
 var cards = ['yellow', 'blue', 'green', 'pink', 'black', 'red', 'yellow', 'blue', 'green', 'pink', 'black', 'red'];
 
- //startButton = document.querySelector('#start').addEventListener('click', function());
+ startButton = document.querySelector('#start').addEventListener('click', function() {
+    window.location = window.location.href;
+ });
 
-//function startGame() {
-     // colors =  shuffle(cards);
-     //for(var  i = 0; i < colors.length; i++){
+function startGame() {
+     
+}
 
-    // }
 
-//}
-
-// window.onload = startGame();
 
 document.querySelector('#yellow').addEventListener('click', function() {
   count ++;
@@ -376,3 +374,10 @@ init();
 var isOdd = function (count) {
   return count & 1;
 };
+
+module.exports = {
+    shuffle,
+    init,
+    isOdd,
+    startGame
+}
