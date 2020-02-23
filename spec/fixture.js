@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+const html =`<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -32,7 +32,7 @@
         <img class="cover" src="images/grey.png">
     </div>
 
-    <div class="memory-card" data-framework="react">
+    <div class="memory-card" data-framework>
         <img class="colors" src="images/pink.png">
         <img class="cover" src="images/grey.png">
     </div>
@@ -58,23 +58,23 @@
     </div>
 
     <div class="memory-card" data-framework>
-        <img class="colors" src="images/black.png" >
-        <img class="cover" src="images/grey.png" >
+        <img class="colors" src="images/black.png">
+        <img class="cover" src="images/grey.png">
     </div>
 
     <div class="memory-card" data-framework>
         <img class="colors" src="images/black.png">
-        <img class="cover" src="images/grey.png" >
-    </div>
-
-    <div class="memory-card" data-framework>
-        <img class="colors" src="images/green.png" >
-        <img class="cover" src="images/grey.png" >
+        <img class="cover" src="images/grey.png">
     </div>
 
     <div class="memory-card" data-framework>
         <img class="colors" src="images/green.png">
-        <img class="cover" src="images/grey.png" >
+        <img class="cover" src="images/grey.png">
+    </div>
+
+    <div class="memory-card" data-framework>
+        <img class="colors" src="images/green.png">
+        <img class="cover" src="images/grey.png">
     </div>
 
     <div class="memory-card" data-framework>
@@ -84,7 +84,7 @@
 
     <div class="memory-card" data-framework>
         <img class="colors" src="images/yellow.jpg">
-        <img class="cover" src="images/grey.png" >
+        <img class="cover" src="images/grey.png">
     </div>
 </section>
 
@@ -92,3 +92,5 @@
 
 </body>
 </html>
+`
+module.exports = html;
