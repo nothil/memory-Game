@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+const html =`<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>memory-game  </title>
+    <title>Title</title>
 
     <link rel="stylesheet" href="game.css">
 </head>
@@ -15,8 +15,8 @@
 </h1>
 
 <div id="stripe">
-    <button id="start"> Start</button>
-    <button id="restart"> play Again</button>
+    <button id="start">Start</button>
+    <button id="restart">Play Again</button>
 
     <span id="message"></span>
 
@@ -27,64 +27,64 @@
 <section class="memory-game">
 
 
-    <div class="memory-card" data-framework="pink">
+    <div class="memory-card" data-framework>
         <img class="colors" src="images/pink.png">
         <img class="cover" src="images/grey.png">
     </div>
 
-    <div class="memory-card" data-framework="pink">
+    <div class="memory-card" data-framework>
         <img class="colors" src="images/pink.png">
         <img class="cover" src="images/grey.png">
     </div>
 
-    <div class="memory-card" data-framework="red">
+    <div class="memory-card" data-framework>
         <img class="colors" src="images/red.jpg">
         <img class="cover" src="images/grey.png">
     </div>
 
-    <div class="memory-card" data-framework="red">
+    <div class="memory-card" data-framework>
         <img class="colors" src="images/red.jpg">
         <img class="cover" src="images/grey.png">
     </div>
 
-    <div class="memory-card" data-framework="blue">
+    <div class="memory-card" data-framework>
         <img class="colors" src="images/blue.jpg">
         <img class="cover" src="images/grey.png">
     </div>
 
-    <div class="memory-card" data-framework="blue">
+    <div class="memory-card" data-framework>
         <img class="colors" src="images/blue.jpg">
         <img class="cover" src="images/grey.png">
     </div>
 
-    <div class="memory-card" data-framework="black">
-        <img class="colors" src="images/black.png" >
-        <img class="cover" src="images/grey.png" >
-    </div>
-
-    <div class="memory-card" data-framework="black">
+    <div class="memory-card" data-framework>
         <img class="colors" src="images/black.png">
-        <img class="cover" src="images/grey.png" >
+        <img class="cover" src="images/grey.png">
     </div>
 
-    <div class="memory-card" data-framework="green">
-        <img class="colors" src="images/green.png" >
-        <img class="cover" src="images/grey.png" >
+    <div class="memory-card" data-framework>
+        <img class="colors" src="images/black.png">
+        <img class="cover" src="images/grey.png">
     </div>
 
-    <div class="memory-card" data-framework="green">
+    <div class="memory-card" data-framework>
         <img class="colors" src="images/green.png">
-        <img class="cover" src="images/grey.png" >
+        <img class="cover" src="images/grey.png">
     </div>
 
-    <div class="memory-card" data-framework="yellow">
+    <div class="memory-card" data-framework>
+        <img class="colors" src="images/green.png">
+        <img class="cover" src="images/grey.png">
+    </div>
+
+    <div class="memory-card" data-framework>
         <img class="colors" src="images/yellow.jpg">
         <img class="cover" src="images/grey.png">
     </div>
 
-    <div class="memory-card" data-framework="yellow">
+    <div class="memory-card" data-framework>
         <img class="colors" src="images/yellow.jpg">
-        <img class="cover" src="images/grey.png" >
+        <img class="cover" src="images/grey.png">
     </div>
 </section>
 
@@ -92,3 +92,5 @@
 
 </body>
 </html>
+`
+module.exports = html;

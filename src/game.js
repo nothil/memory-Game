@@ -1,78 +1,85 @@
+const colors = document.querySelectorAll('.memory-card');
 
-document.querySelector('#yellow').addEventListener('click', function() {
-  if (document.getElementById('yellow').classList.contains('hide')) {
-    document.getElementById('yellow').classList.add('yellow');
-    document.getElementById('yellow').classList.remove('hide');
-  } else {
-    document.getElementById('yellow').classList.add('hide');
-    document.getElementById('yellow').classList.remove('yellow');
-  }  
-});
+let hasFlippedCard = false;
+let lockBoard = false;
+let firstCard, secondCard;
 
-document.querySelector('#blue1').addEventListener('click', function() {
-  if (document.getElementById('blue').classList.contains('hide')) {
-    document.getElementById('blue').classList.add('blue');
-    document.getElementById('blue').classList.remove('hide');
-  } else {
-    document.getElementById('blue').classList.add('hide');
-    document.getElementById('blue').classList.remove('blue');
-  }  
+startButton = document.querySelector('#start').addEventListener('click', function(){
+ window.location = window.location.href;
+})
+
+ restartGame = document.getElementById('restart').addEventListener('click', function () {
+
+    window.location = window.location.href;
 });
 
 
-document.querySelector('#red1').addEventListener('click', function() {
-  if (document.getElementById('red').classList.contains('hide')) {
-    document.getElementById('red').classList.add('red');
-    document.getElementById('red').classList.remove('hide');
-  } else {
-    document.getElementById('red').classList.add('hide');
-    document.getElementById('red').classList.remove('red');
-  }  
-});
+
+function flipCard() {
+    if (lockBoard) return;
+
+    if (this === firstCard) return;
+
+    this.classList.add('flip');
+
+    if (!hasFlippedCard) {
+        hasFlippedCard = true;
+        firstCard = this;
+        return;
+    }
+
+    secondCard = this;
+
+    checkForMatch();
+}
+
+function checkForMatch() {
+    if (firstCard.dataset.framework === secondCard.dataset.framework) {
+        disableCards();
+        return;
+    }
+
+    unflipCards();
+}
+
+function disableCards() {
+    firstCard.removeEventListener('click', flipCard);
+    secondCard.removeEventListener('click', flipCard);
+
+    resetBoard();
+}
+
+function unflipCards() {
+    lockBoard = true;
+    setTimeout(() => {
+        firstCard.classList.remove('flip');
+        secondCard.classList.remove('flip');
+        resetBoard();
+    }, 1500);
+}
+
+function resetBoard() {
+    [hasFlippedCard, lockBoard] = [false, false];
+    [firstCard, secondCard] = [null, null];
+}
+
+(function shuffle() {
+    colors.forEach(card => {
+        let ramdomPos = Math.floor(Math.random() * 12);
+        card.style.order = ramdomPos;
+    });
+} ());
 
 
-document.querySelector('#green').addEventListener('click', function() {
-  if (document.getElementById('green').classList.contains('hide')) {
-    document.getElementById('green').classList.add('green');
-    document.getElementById('green').classList.remove('hide');
-  } else {
-    document.getElementById('blue').classList.add('hide');
-    document.getElementById('green').classList.remove('green');
-  }  
-});
+
+colors.forEach(card => card.addEventListener('click', flipCard));
 
 
-document.querySelector('#black1').addEventListener('click', function() {
-  if (document.getElementById('black').classList.contains('hide')) {
-    document.getElementById('black').classList.add('black');
-    document.getElementById('black').classList.remove('hide');
-  } else {
-    document.getElementById('black').classList.add('hide');
-    document.getElementById('black').classList.remove('black');
-  }  
-});
 
-document.querySelector('#pink1').addEventListener('click', function() {
-  if(document.getElementById('pink1').classList.contains('hide')) {
-    document.getElementById('pink').classList.add('pink');
-    document.getElementById('pink').classList.remove('hide');
-  } else {
-    document.getElementById('pink').classList.add('hide');
-    document.getElementById('pink').classList.remove('pink');
-  }
-});
+  module.exports = {
+    flipCard,
+      unflipCards,
+      disableCards,
+      resertBoard
 
-// var onclick = document.getElementsByClassName("hide");
-
-
-// function clickedCard(e) {
-//   for(var i = 0; i < card.length; i++) 
-//   const target = e.currentTarget;
-//   hide[i].addEventListener('click', clickedCard);
-
-//   target.className = target.className
-//   .replace('hide', '')
-//   .trim();
-
-// }
-
+};

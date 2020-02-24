@@ -1,112 +1,24 @@
-
-
-
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
 
 body {
-	background-color: aliceblue;
-
-	
-	margin: 0px;
-	font-family: "Montserrat", "Avenir";
-	padding: 0px;
+	height: 100vh;
+	background: whitesmoke;
 }
 
-/*.square {
-    background-color: aquamarine;
-    padding: 0px;
-    border: 1px solid whitesmoke;
-	border-radius: 10%;
-	width: 100%;
-	width: 100%;
-
-	
-
-    
-	
-}*/
-
-#container{
-	background-color: #232323;
-	width: 50%;
-	height: 50%;
-	margin: 0px auto;
-	padding: 10px;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-column-gap:10px;
-	
-
-
+.memory-game {
+	width: 640px;
+	height: 640px;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	perspective: 1000px;
+	padding-top: 30px;
 }
 
-.squares{
-	width: 100%;
-}
-
-img{
-  width: 100%;
-  background-color: aliceblue;
-}
-
-.square.flip{
-	transform: rotateY(180deg);
-}
- /*img{
-	width: 50%;
-	height:50%;
-	padding: 0px;
-
-	
-
-	
-}
-
-
-/*#container {
-    display: grid;
-    grid-template-columns:1fr 1fr 1fr 1fr;
-    grid-column-gap: 100px;
-    width: 50%;
-    grid-column-gap:10px;
-    row-gap: 10px;
-    margin: auto;
-	padding: 40px;
-	border:1px solid white;
-
-	
-}*/
-
-h1 {
-	text-align: center;
-	line-height: 1.1;
-	font-weight: normal;
-	color: white;
-	background: darkgray;
-	margin: 0;
-	text-transform: uppercase;
-	padding: 20px 0;
-}
-
-#colorDisplay {
-	font-size: 100%;
-}
-
-#message {
-	display: inline-block;
-	width: 20%;
-}
-
-#stripe {
-	background: white;
-	height: 30px;
-	text-align: center;
-	color: black;
-}
-
-.selected {
-	color: white;
-	background: darkgray;
-}
 
 button {
 	border: none;
@@ -128,55 +40,64 @@ button:hover {
 	background: steelblue;
 }
 
-.row{
+#stripe {
+	background: white;
+	height: 30px;
 	text-align: center;
+	color: black;
+
 }
 
-.card{
+#restart{
+
+	margin-left: 10%;
+}
+
+h1 {
+	text-align: center;
+	line-height: 1.9;
+	font-weight: normal;
+	color: white;
+	background: darkgray;
+	margin: 0;
+	text-transform: uppercase;
+	padding: 30px 0;
+}
+
+#message {
 	display: inline-block;
-	width: 100px;
-	height: 100px;
-	background-color: #eee;
-	cursor: pointer;
-
+	width: 20%;
 }
 
-.card:hover {
-	border:  1px solid black;
-	
-
+.memory-card {
+	width: calc(25% - 10px);
+	height: calc(33.333% - 10px);
+	margin: 5px;
+	position: relative;
+	transform: scale(1);
+	transform-style: preserve-3d;
+	transition: transform .5s;
 }
 
-.red{
-	background-color: red;
+.colors,
+.cover {
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	position: absolute;
+	border-radius: 5px;
+	backface-visibility: hidden;
 }
 
-.green{
-	background-color: green;
+.colors {
+	transform: rotateY(180deg);
 }
 
-.yellow{
-	background-color: yellow;
-}
-.black{
-	background-color: black;
-}
-.purple{
-	background-color: purple;
-}
-.pink{
-	background-color: pink;
-}
-.orange{
-	background-color: orangered;
-}
-.blue{
-	background-color: blue;
-}
-.brown{
-	background-color: brown;
+.memory-card:active {
+	transform: scale(0.97);
+	transition: transform .2s;
 }
 
-.hide {
-	background-color: gray;
+.memory-card.flip {
+	transform: rotateY(180deg);
 }
