@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/nothil/memory-Game/issues"
   },
+<<<<<<< HEAD
   "homepage": "https://github.com/nothil/memory-Game#readme"
+=======
+  "homepage": "https://github.com/nothil/memory-Game#readme",
+  "dependencies": {
+    "jsdom": "^16.2.0"
+  }
+>>>>>>> 4e2277c3056bd756fcd776f67921044b20ac6158
 }
