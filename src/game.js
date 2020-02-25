@@ -15,7 +15,7 @@ startButton = document.querySelector('#start').addEventListener('click', functio
 
 
 
-function flipCard() {
+function flipColor() {
     if (lockBoard) return;
 
     if (this === firstCard) return;
@@ -43,8 +43,8 @@ function checkForMatch() {
 }
 
 function disableCards() {
-    firstCard.removeEventListener('click', flipCard);
-    secondCard.removeEventListener('click', flipCard);
+    firstCard.removeEventListener('click', flipColor);
+    secondCard.removeEventListener('click', flipColor);
 
     resetBoard();
 }
@@ -65,19 +65,19 @@ function resetBoard() {
 
 (function shuffle() {
     colors.forEach(card => {
-        let ramdomPos = Math.floor(Math.random() * 12);
-        card.style.order = ramdomPos;
+        let ramdomColor = Math.floor(Math.random() * 12);
+        card.style.order = ramdomColor;
     });
 } ());
 
 
 
-colors.forEach(card => card.addEventListener('click', flipCard));
+colors.forEach(card => card.addEventListener('click', flipColor));
 
 
 
   module.exports = {
-    flipCard,
+    flipColor,
       unflipCards,
       disableCards,
       resertBoard
